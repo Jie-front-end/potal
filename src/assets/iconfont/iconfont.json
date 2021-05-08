@@ -1,0 +1,65 @@
+{
+  "id": "2057535",
+  "name": "roadnet-bigscreen",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "路网大屏",
+  "glyphs": [
+    {
+      "icon_id": "4412473",
+      "name": "道路",
+      "font_class": "daolu",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "1339437",
+      "name": "上海风箱网络科技有限公司 商标图形",
+      "font_class": "shanghaifengxiangwangluokejiyouxiangongsishangbiaotuxing",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "3832826",
+      "name": "设置",
+      "font_class": "shezhi2",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "9459362",
+      "name": "科技",
+      "font_class": "keji1",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "9398724",
+      "name": "挖掘机",
+      "font_class": "wajueji",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "12096072",
+      "name": "旗帜",
+      "font_class": "qizhi",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "12580401",
+      "name": "记录",
+      "font_class": "jilu",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "13855934",
+      "name": "建筑",
+      "font_class": "jianzhu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

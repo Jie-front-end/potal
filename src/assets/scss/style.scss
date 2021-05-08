@@ -1,0 +1,75 @@
+@import "./variables";
+
+// color
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+}
+
+// font-size
+@each $sizeKey, $size in $font-sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size * $base-font-size;
+  }
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.anchorBL {
+  display: none;
+}
+
+.custom-select /deep/.el-input__inner {
+  border: 0px;
+  background-color: rgb(50, 48, 145);
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vision-select /deep/.el-input__inner {
+  border: 0px;
+  background-color: rgb(50, 48, 145);
+  font-family: PingFangSC-Regular;
+  font-size: 1.54vmin;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.vision-select /deep/.el-input--mini .el-input__inner {
+  height: 2.8vmin;
+  line-height: 2.8vmin;
+}
+
+.vision-popper /deep/.el-select-dropdown__item {
+  height: 3.6286vmin;
+  line-height: 3.6286vmin;
+  min-height: 34px;
+  font-size: 1.54vmin;
+}
+
+.custom-radio /deep/.el-radio-button__inner {
+  background: rgb(95, 65, 197);
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgb(95, 65, 197);
+}
+.custom-radio /deep/.el-radio-button--mini .el-radio-button__inner {
+  font-size: 1.54vmin;
+}
+.custom-table.dv-scroll-board /deep/.row-item div {
+  font-size: 36px;
+}
+
+.custom-table.dv-scroll-board /deep/.header .header-item {
+  font-size: 36px;
+}
