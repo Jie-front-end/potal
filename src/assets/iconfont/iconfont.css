@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2057535 */
-  src: url('iconfont.woff2?t=1620633703842') format('woff2'),
-       url('iconfont.woff?t=1620633703842') format('woff'),
-       url('iconfont.ttf?t=1620633703842') format('truetype');
+  src: url('iconfont.woff2?t=1620789532827') format('woff2'),
+       url('iconfont.woff?t=1620789532827') format('woff'),
+       url('iconfont.ttf?t=1620789532827') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,86 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.iconnotice:before {
+  content: "\e616";
+}
+
+.icondaiyue:before {
+  content: "\e63f";
+}
+
+.iconzhongyaojihui:before {
+  content: "\e66b";
+}
+
+.iconxinwen:before {
+  content: "\e611";
+}
+
+.iconzhinenghua:before {
+  content: "\e7a3";
+}
+
+.iconcaiwu:before {
+  content: "\e60b";
+}
+
+.iconxinxi:before {
+  content: "\e627";
+}
+
+.icondaiban:before {
+  content: "\e650";
+}
+
+.iconHR:before {
+  content: "\e62e";
+}
+
+.icongongzichaxun:before {
+  content: "\e612";
+}
+
+.iconrenliziyuan:before {
+  content: "\e619";
+}
+
+.icondangjianhudongbaike:before {
+  content: "\e6bb";
+}
+
+.icondangjianhuodong:before {
+  content: "\e6bc";
+}
+
+.iconliucheng:before {
+  content: "\e670";
+}
+
+.icondangjian:before {
+  content: "\e608";
+}
+
+.icondongtai:before {
+  content: "\e651";
+}
+
+.icontongxunlu:before {
+  content: "\e622";
+}
+
+.iconcrew_feature:before {
+  content: "\e605";
+}
+
+.icon31gongyegongcheng_zhineng:before {
+  content: "\e671";
+}
+
+.icon001-mailinboxapp:before {
+  content: "\e68a";
 }
 
 .iconclose-eye:before {

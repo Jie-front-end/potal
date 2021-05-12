@@ -6,13 +6,26 @@
             <img class="nav_logo_img" src="~@/assets/name.png" alt="" @click="toHome">
             <div class="nav_logo_doc">| 统一集成门户</div>
           </div>
-          <div class="nav_logo flexStart mr30">
-            <div class="comLi langChange">
-                <li style="margin-left:5px;"><a href="javascript:void(0)">中文<span style="color:#999">/English</span></a></li>
+          <div class="nav_logo flexStart mr50">
+              <div class="comLi">
+                 <h3><icon-font class="icon001-mailinboxapp" /></h3>
+
               </div>
-              <div class="liLine"></div>
-              <div class="comLi inTee">
-                <li class="disabled"><a href="#">进入TEE AI</a></li>
+              <div class="liLine" />
+              <div class="comLi">
+                  <el-dropdown @command="handleDropdown">
+                    <span class="right-menu-item-text">
+                      {{ hourText }},
+                      <el-button type="text" class="right-menu-item-text">
+                          <i class="el-icon-user-solid ml5 mr5" />{{ userName }}
+                        <i class="el-icon-arrow-down ml10" />
+                      </el-button>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+                      <el-dropdown-item command="logout">修改密码</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
               </div>
           </div>
         </div>
@@ -28,7 +41,15 @@ export default {
     return {
       navData: [{ link: '/index', name: '首页' }, { link: '/index', name: '流程中心' }, { link: '/index', name: '工程项目' }, { link: '/index', name: '运营管理' }, { link: '/index', name: '董事长信箱' }],
       wid: 0,
-      toUrl: '/imagesensor'
+      toUrl: '/imagesensor',
+      userName: '管理员'
+    }
+  },
+  computed: {
+    hourText () {
+      const time = new Date()
+      const hour = time.getHours()
+      return hour < 9 ? '早上好' : (hour <= 11 ? '上午好' : (hour <= 13 ? '中午好' : (hour < 20 ? '下午好' : '晚上好')))
     }
   },
   methods: {
@@ -42,8 +63,26 @@ export default {
     currentLi (index) {
       // console.log(index)
     },
+    async logout () {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
     toHome () {
       this.$router.push('/')
+    },
+    handleDropdown (command) {
+      switch (command) {
+        // case 'password':
+        //   this.$refs.passwordEditModal.open()
+        //   break
+        case 'logout':
+          this.$message.warning('此功能尚未提供')
+          // this.handleLogout()
+          // this.$store.dispatch('user/logout')
+          break
+        default:
+          break
+      }
     },
     joinUs () {
       this.$router.push('/InviteJob')
@@ -120,14 +159,6 @@ export default {
     color: #fff;
     font-size: 13px;
   }
-  .product_detail_out a, .solve_detail a{
-    width: 100%;
-    height: 25px;
-    border-radius: 3px;
-  }
-  .product_detail_out a:hover, .solve_detail a:hover{
-    background-color: #3E88F1 !important;
-  }
   nav ul>li:hover a{
     color: #fff;
   }
@@ -137,12 +168,24 @@ export default {
   }
   .comLi{
     height: 60px;
-    /* float: right; */
-    line-height: 60px;
+    line-height: 80px;
     font-size: 14px;
     padding: 0 10px;
-    margin-right: 30px;
   }
+  .liLine{
+    margin: 34px 10px 0 10px;
+    width: 1px;
+    height: 14px;
+    background-color: #19274A;
+  }
+  .el-dropdown {
+    display: inline-block;
+    position: relative;
+    color: #606266;
+    font-size: 14px;
+    height: 50px;
+   }
+  /*
   .inTee{
     width: 104px;
     height: 22px;
@@ -153,100 +196,15 @@ export default {
     text-align: center;
     margin-right: 0
   }
-  .inTee:hover{
-    /* background-color: #19274A; */
-  }
   .inTee:hover li a{
     color: #fff;
-  }
-  .liLine{
-    /* float: right; */
+  } */
+  /* .liLine{
     margin: 24px 15px 0 17px;
     width: 1px;
     height: 14px;
     background-color: #19274A;
-  }
-  .product_detail, .solve_detail{
-    width: 100%;
-    height: 125px;
-    background-color: rgba(0, 0, 0, .7);
-    display: block;
-    position: fixed;
-    left: 0;
-    display: none;
-    z-index: 110;
-  }
-  .product_detail_out{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .product_detail_out ul a:hover, .solve_check_ul a:hover{
-    color: #fff;
-  }
-  .product:hover .product_detail, .aboutUs:hover{
-    display: block;
-  }
-  .solve:hover .solve_detail{
-    display: block;
-  }
-  .product_detail_out > div, .solve_detail > div{
-    float: left;
-    color: #fff;
-    margin-left: 35px
-  }
-  .product_detail_out > div li, .solve_detail > div li{
-    color: #fff;
-    display: block;
-    line-height: 25px;
-  }
-  .product_detail_out ul>li{
-    font-size: 14px;
-  }
-  .product_h3{
-    font-size: 17px;
-    height: 53px;
-    border-bottom: 1px solid #999;
-    margin-bottom: 3px;
-  }
-  .aboatUs_div{
-    /* background-color: rgba(25,39,74, 0.7); */
-    background-color: rgba(0, 0, 0, .7) !important;
-    display: none;
-  }
-  .aboatUs_div a{
-    height: 25px;
-    padding: 2px 5px;
-    border-radius: 3px;
-    line-height: 25px;
-  }
-  .aboatUs_div a:hover{
-    background-color: #3E88F1;
-  }
-  .aboutUs:hover .aboatUs_div{
-    display: block
-  }
-  .langChange{
-    padding: 0 0;
-    display: flex;
-    align-items: center;
-  }
-  .langChange:before{
-    display: inline-block;
-    content: '';
-    /* background: url("~@/assets/logo.png") no-repeat center; */
-    width: 19px;
-    height: 19px;
-  }
-  .check_ul_li2>a{
-    position: relative;
-  }
-  .disabled>a{
-    pointer-events: none;
-    color: #999 !important;
-    cursor: no-drop;
-  }
+  } */
   @media screen and (max-width: 980px) {
     nav>ul>li{
       width: 90px;

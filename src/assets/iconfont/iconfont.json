@@ -6,6 +6,146 @@
   "description": "路网大屏",
   "glyphs": [
     {
+      "icon_id": "1066516",
+      "name": "通知",
+      "font_class": "notice",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "1132590",
+      "name": "待阅",
+      "font_class": "daiyue",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "1680710",
+      "name": "重要机会",
+      "font_class": "zhongyaojihui",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "2767897",
+      "name": "新闻",
+      "font_class": "xinwen",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "3169799",
+      "name": "智能化",
+      "font_class": "zhinenghua",
+      "unicode": "e7a3",
+      "unicode_decimal": 59299
+    },
+    {
+      "icon_id": "3862620",
+      "name": "财务",
+      "font_class": "caiwu",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "4275812",
+      "name": "信息",
+      "font_class": "xinxi",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "4784081",
+      "name": "待办",
+      "font_class": "daiban",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "6436196",
+      "name": "HR",
+      "font_class": "HR",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "7069084",
+      "name": "工资查询",
+      "font_class": "gongzichaxun",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "8027287",
+      "name": "人力资源",
+      "font_class": "renliziyuan",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "8452504",
+      "name": "党建互动百科",
+      "font_class": "dangjianhudongbaike",
+      "unicode": "e6bb",
+      "unicode_decimal": 59067
+    },
+    {
+      "icon_id": "8452505",
+      "name": "党建活动",
+      "font_class": "dangjianhuodong",
+      "unicode": "e6bc",
+      "unicode_decimal": 59068
+    },
+    {
+      "icon_id": "10069720",
+      "name": "流程",
+      "font_class": "liucheng",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "12875280",
+      "name": "党建",
+      "font_class": "dangjian",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "14220842",
+      "name": "动态",
+      "font_class": "dongtai",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "15035084",
+      "name": "通讯录",
+      "font_class": "tongxunlu",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "18177094",
+      "name": "功能",
+      "font_class": "crew_feature",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "20810367",
+      "name": "智能",
+      "font_class": "31gongyegongcheng_zhineng",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "21225880",
+      "name": "信箱",
+      "font_class": "001-mailinboxapp",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
       "icon_id": "3032218",
       "name": "闭眼",
       "font_class": "close-eye",

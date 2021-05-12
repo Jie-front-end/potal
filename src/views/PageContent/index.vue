@@ -7,7 +7,8 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <Change-box />
+        <!-- <change-box /> -->
+        <info-box />
         <info-box />
     </div>
   </div>
@@ -25,9 +26,7 @@ export default {
     InfoBox
   },
   created () {
-    queryOrderList().then(
-
-    )
+    // queryOrderList().then()
   },
   data () {
     return {}

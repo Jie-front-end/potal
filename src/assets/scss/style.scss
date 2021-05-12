@@ -14,18 +14,6 @@
   }
 }
 
-.mr5 {
-  margin-right: 5px;
-}
-
-.mr10 {
-  margin-right: 10px;
-}
-
-.mt20 {
-  margin-top: 20px;
-}
-
 .anchorBL {
   display: none;
 }
@@ -83,7 +71,7 @@
 }
 
 .single-feature {
-  padding: 40px;
+  padding: 10px;
   background: $dark;
   @include transition(0.3s);
   &:hover {
