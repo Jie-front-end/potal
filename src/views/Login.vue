@@ -1,16 +1,16 @@
 <template>
  <div class="top-container">
    <div class="header">
-      <img src="~@/assets/logo.png" class="logo" alt="logo">
-      <span class="title">广西交科集团有限公司
-      </span>
-      <span class="desc"> | </span>
-        <span class="desc"> 统一集成门户 </span>
+      <img src="~@/assets/name.png" class="logo" alt="logo">
+      <!-- <span class="title">广西交科集团有限公司
+      </span> -->
+      <!-- <span class="desc"> | </span>
+        <span class="desc"> 统一集成门户 </span> -->
   </div>
   <div class="login-container">
     <el-form ref="form" :model="form" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
       <div class="title-container">
-        <h3 class="title">登录</h3>
+        <h3 class="title">统一集成门户</h3>
       </div>
       <el-form-item prop="username">
         <span class="svg-container">
@@ -44,8 +44,8 @@
             @keyup.enter.native="handleLogin"
           />
           <span class="show-pwd" @click="showPwd">
-            <i class="el-icon-view"></i>
-            <!-- <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" /> -->
+            <i v-if="passwordType === 'password'" class="el-icon-view"></i>
+            <icon-font v-else class="iconclose-eye" />
           </span>
         </el-form-item>
       </el-tooltip>
@@ -92,11 +92,12 @@ export default {
       })
     },
     handleLogin () {
+      this.$router.push({ path: this.redirect || '/' })
       this.loading = true
       login(this.form).then(res => {
+        console.log('res', res)
         this.loading = false
-        if (res.code === 0) {
-          // setToken(res.data.token)
+        if (res.data.code === 0) {
           this.$router.push({ path: this.redirect || '/' })
         } else {
           this.$notify.error({
@@ -120,15 +121,16 @@ export default {
 <style lang="scss" scoped>
   .top-container {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 0px);
     position: relative;
     background-image: url('../assets/jiaoke2.jpg');
     background-size: 100% 100%;
       .header {
-          height: 44px;
-          line-height: 44px;
+          padding: 20px 0px 0px 20px;
+          height: 40px;
+          line-height: 40px;
           .title {
-            font-size: 30px;
+            font-size: 28px;
             color: rgba(0, 0, 0, .8);
             // font-family: "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             font-weight: 600;
@@ -136,7 +138,7 @@ export default {
             top: 2px;
           }
           .logo {
-            height: 40px;
+            height: 50px;
             vertical-align: top;
             margin-right: 16px;
             border-style: none;
@@ -149,16 +151,23 @@ export default {
         }
   }
   .login-container {
+    background: rgba(40, 52, 67, .1);
     position: absolute;
-    top: 25%;
+    top: 15%;
     left: 40%;
     margin: 0px auto;
-    width: 400px;
+    width: 340px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 6px #fff;
+    //  &:hover {
+    //     box-shadow: 3px 3px 6px #fff;
+    //  }
   }
 $bg:#283443;
 $light_gray:#fff;
 $cursor: #fff;
-
+$dark_gray:#889aa4;
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
   .login-container .el-input input {
     color: $cursor;
@@ -167,11 +176,36 @@ $cursor: #fff;
 
 /* reset element-ui css */
 .login-container {
-  .el-input {
+   .title-container {
+      position: relative;
+      .title {
+        font-size: 22px;
+        color: $bg;
+        margin: 0px auto 30px auto;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+    .show-pwd {
+      position: absolute;
+      right: 14px;
+      top: 7px;
+      font-size: 16px;
+      color: $dark_gray;
+      cursor: pointer;
+      user-select: none;
+    }
+    .svg-container {
+      padding: 6px 2px 6px 12px;
+      color: $light_gray;
+      vertical-align: middle;
+      width: 30px;
+      display: inline-block;
+    }
+   .el-input {
     display: inline-block;
     height: 47px;
     width: 85%;
-
     input {
       background: transparent;
       border: 0px;
@@ -183,11 +217,11 @@ $cursor: #fff;
       caret-color: $cursor;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 500px $bg inset !important;
+        box-shadow: 0 0 0px 1000px $bg inset !important;
         -webkit-text-fill-color: $cursor !important;
       }
+     }
     }
-  }
 
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -195,84 +229,6 @@ $cursor: #fff;
     border-radius: 5px;
     color: #454545;
   }
-}
-</style>
 
-<style lang="scss" scoped>
-
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
-
-.login-container {
-  background-color: $bg;
-  overflow: hidden;
-  position: absolute;
-  top: 25%;
-  left: 40%;
-  margin: 0px auto;
-  width: 400px;
-  .login-form {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
-    }
-  }
-
-  .svg-container {
-    padding: 6px 5px 6px 15px;
-    color: $dark_gray;
-    vertical-align: middle;
-    width: 30px;
-    display: inline-block;
-  }
-
-  .title-container {
-    position: relative;
-
-    .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
-    }
-  }
-
-  .show-pwd {
-    position: absolute;
-    right: 10px;
-    top: 7px;
-    font-size: 16px;
-    color: $dark_gray;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .thirdparty-button {
-    position: absolute;
-    right: 0;
-    bottom: 6px;
-  }
-
-  @media only screen and (max-width: 470px) {
-    .thirdparty-button {
-      display: none;
-    }
-  }
 }
 </style>

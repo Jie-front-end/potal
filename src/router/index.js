@@ -6,9 +6,31 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/index',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: 'catetory/:catetoryId',
+        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+      },
+      {
+        path: 'catetory/:catetoryId/article/:articleId',
+        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+      }
+    ]
+  },
+  {
+    path: '/',
+    redirect: '/index'
+  },
+  {
+    path: '',
+    redirect: '/index'
+  },
+  {
+    path: '*',
+    redirect: '/index'
   },
   {
     path: '/about',

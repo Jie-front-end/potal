@@ -73,3 +73,21 @@
 .custom-table.dv-scroll-board /deep/.header .header-item {
   font-size: 36px;
 }
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+.single-feature {
+  padding: 40px;
+  background: $dark;
+  @include transition(0.3s);
+  &:hover {
+    background: $light;
+    box-shadow: 0px 10px 30px $shadow;
+  }
+}

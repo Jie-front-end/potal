@@ -6,6 +6,55 @@
   "description": "路网大屏",
   "glyphs": [
     {
+      "icon_id": "3032218",
+      "name": "闭眼",
+      "font_class": "close-eye",
+      "unicode": "e79c",
+      "unicode_decimal": 59292
+    },
+    {
+      "icon_id": "755551",
+      "name": "菱形",
+      "font_class": "lingxing",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "755612",
+      "name": "圆形",
+      "font_class": "circle",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "7639355",
+      "name": "实心正方形",
+      "font_class": "shixinzhengfangxing",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "1409837",
+      "name": "9终点",
+      "font_class": "zhongdian",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "16336160",
+      "name": "卡口",
+      "font_class": "kakou",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "1409836",
+      "name": "6起点",
+      "font_class": "qidian",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
       "icon_id": "4412473",
       "name": "道路",
       "font_class": "daolu",

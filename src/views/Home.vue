@@ -1,18 +1,48 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="index">
+    <pageHeader></pageHeader>
+    <pageContent></pageContent>
+    <pageFooter></pageFooter>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import PageHeader from './PageHeader'
+import PageContent from './PageContent'
+import PageFooter from './PageFooter'
 
 export default {
-  name: 'Home',
+  name: 'app',
+  data () {
+    return {
+
+    }
+  },
   components: {
-    HelloWorld
+    pageHeader: PageHeader,
+    pageContent: PageContent,
+    pageFooter: PageFooter
+  },
+  mounted: function () {
+    if (this.$route.path !== '/index') {
+      this.$store.dispatch('pageContentHide')
+    } else {
+      this.$store.dispatch('pageContentShow')
+    }
+  },
+  watch: {
+    $route: function (to, from) {
+      this.$store.dispatch('pageNumberReset') // 当路由改变时，将文章列表当前第几页的信息重置为第1页
+      if (to.path !== '/index') {
+        this.$store.dispatch('pageContentHide')
+      } else {
+        this.$store.dispatch('pageContentShow')
+      }
+    }
   }
 }
 </script>
+
+<style>
+
+</style>

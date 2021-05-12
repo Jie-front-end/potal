@@ -6,6 +6,8 @@ import './plugins/element.js'
 import IconFont from '@/components/IconFont'
 import './permission'
 import './assets/scss/style.scss'
+import './assets/iconfont/iconfont.css'
+import './assets/css/common.css'
 Vue.config.productionTip = false
 Vue.component('icon-font', IconFont)
 new Vue({
