@@ -6,19 +6,19 @@ module.exports = {
   devServer: {
     port: port,
     proxy: {
-      '/potal': {
+      '/portal': {
         // target: 'http://219.159.152.72:14107',
-        target: 'http://10.0.150.77:8083',
+        target: 'http://10.0.150.77:8084',
         changeOrigin: true,
         pathRewrite: {
-          '^/potal': ''
+          '^/portal': '/portal'
         }
       },
-      '/login': {
+      '/oauth': {
         target: 'http://10.0.150.77:8081',
         changeOrigin: true,
         pathRewrite: {
-          '^/login': '/login'
+          '^/oauth': '/oauth'
         }
       }
     }

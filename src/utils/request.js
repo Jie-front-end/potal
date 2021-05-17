@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
-// import { getToken } from '@/utils/auth'
+import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
@@ -21,7 +21,17 @@ service.interceptors.request.use(
     //   // please modify it according to the actual situation
     //   config.headers['X-Token'] = getToken()
     // }
+
+    if (config.url === '/oauth/token') {
+      config.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
+    } else {
+      const token = getToken()
+      if (token) {
+        config.headers.Authorization = token // 让每个请求携带自定义 token 请根据实际情况自行修改
+      }
+    }
     config.headers['X-Requested-With'] = 'XMLHttpRequest'
+    console.log('config', config)
     return config
   },
   error => {

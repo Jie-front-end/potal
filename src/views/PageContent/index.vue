@@ -8,8 +8,14 @@
             </el-carousel>
         </div>
         <!-- <change-box /> -->
-        <info-box />
-        <info-box />
+        <div class="flexTwoEnd">
+          <info-box />
+          <change-box />
+        </div>
+        <div class="flexTwoEnd">
+          <icon-box />
+          <icon-box />
+        </div>
     </div>
   </div>
 </template>
@@ -18,15 +24,17 @@
 // @ is an alias to /src
 import ChangeBox from '@/components/ChangeBox'
 import InfoBox from '@/components/InfoBox'
+import IconBox from '@/components/IconBox'
 import { queryOrderList } from '@/api/api'
 export default {
   name: 'Home',
   components: {
     ChangeBox,
-    InfoBox
+    InfoBox,
+    IconBox
   },
   created () {
-    // queryOrderList().then()
+    queryOrderList().then()
   },
   data () {
     return {}

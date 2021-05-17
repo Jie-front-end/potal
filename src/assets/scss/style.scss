@@ -1,18 +1,157 @@
 @import "./variables";
-
 // color
 @each $colorKey, $color in $colors {
   .text-#{$colorKey} {
     color: $color;
   }
 }
-
 // font-size
 @each $sizeKey, $size in $font-sizes {
   .fs-#{$sizeKey} {
     font-size: $size * $base-font-size;
   }
 }
+// margin left
+@for $i from 1 through $mp-listnum {
+  .ml#{$i*5} {
+    margin-left: 5px * $i;
+  }
+}
+// margin right
+@for $i from 1 through $mp-listnum {
+  .mr#{$i*5} {
+    margin-right: 5px * $i;
+  }
+}
+// margin top
+@for $i from 1 through $mp-listnum {
+  .mt#{$i*5} {
+    margin-top: 5px * $i;
+  }
+}
+// margin botton
+@for $i from 1 through $mp-listnum {
+  .mb#{$i*5} {
+    margin-bottom: 5px * $i;
+  }
+}
+
+// padding left
+@for $i from 1 through $mp-listnum {
+  .pl#{$i*5} {
+    padding-left: 5px * $i;
+  }
+}
+// padding right
+@for $i from 1 through $mp-listnum {
+  .pr#{$i*5} {
+    padding-right: 5px * $i;
+  }
+}
+// padding top
+@for $i from 1 through $mp-listnum {
+  .pt#{$i*5} {
+    padding-top: 5px * $i;
+  }
+}
+// padding botton
+@for $i from 1 through $mp-listnum {
+  .pb#{$i*5} {
+    padding-bottom: 5px * $i;
+  }
+}
+
+// font-size
+@for $i from 1 through $font-sizes-listnum {
+  .fs#{6 + $i*2} {
+    font-size: 6px + $i * 2;
+  }
+}
+
+.boxSizing {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+// fixedTop
+.fixedTop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+}
+
+// fixedBottom
+.fixedBottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+
+//
+@each $typeKey, $type in $align-type {
+  .row-#{$typeKey} {
+    display: flex;
+    flex-direction: row;
+    justify-content: $type;
+  }
+}
+
+//
+@each $typeKey, $type in $align-type {
+  .col-#{$typeKey} {
+    display: flex;
+    flex-direction: column;
+    justify-content: $type;
+  }
+}
+
+.flexTwoEnd {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flexStart {
+  display: flex;
+  flex-direction: row;
+}
+.flexCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexStartCol {
+  display: flex;
+  flex-direction: column;
+}
+.flexCenterCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+.single-feature {
+  padding: 10px;
+  background: $dark;
+  @include transition(0.3s);
+  &:hover {
+    background: $light;
+    box-shadow: 0px 10px 30px $shadow;
+  }
+}
+
+// 下列是拷贝别人的
 
 .anchorBL {
   display: none;
@@ -60,22 +199,4 @@
 
 .custom-table.dv-scroll-board /deep/.header .header-item {
   font-size: 36px;
-}
-
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-
-.single-feature {
-  padding: 10px;
-  background: $dark;
-  @include transition(0.3s);
-  &:hover {
-    background: $light;
-    box-shadow: 0px 10px 30px $shadow;
-  }
 }

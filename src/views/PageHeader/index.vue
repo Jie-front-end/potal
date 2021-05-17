@@ -9,7 +9,6 @@
           <div class="nav_logo flexStart mr50">
               <div class="comLi">
                  <h3><icon-font class="icon001-mailinboxapp" /></h3>
-
               </div>
               <div class="liLine" />
               <div class="comLi">
@@ -18,7 +17,7 @@
                       {{ hourText }},
                       <el-button type="text" class="right-menu-item-text">
                           <i class="el-icon-user-solid ml5 mr5" />{{ userName }}
-                        <i class="el-icon-arrow-down ml10" />
+                        <i class="el-icon-arrow-down ml5 mr5" />
                       </el-button>
                     </span>
                     <el-dropdown-menu slot="dropdown">
@@ -29,7 +28,7 @@
               </div>
           </div>
         </div>
-         <ul class="flexStart ml30" >
+         <ul class="flexStart ml70" >
               <li v-for="(item,index) in navData" :key="index" @click="currentLi(index)"><router-link :to="item.link" >{{item.name}}</router-link></li>
          </ul>
       </nav>
@@ -118,16 +117,8 @@ export default {
     min-width: 950px;
     background-color: #ffffff;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    border-bottom: 2px solid #C29953;
     z-index: 99;
-  }
-  .flexTwoEnd{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .flexStart{
-    display: flex;
-    flex-direction: row;
   }
   .nav_logo{
     height: 60px;
@@ -144,23 +135,19 @@ export default {
     font-size: 18px;
     color: #C29953;
     line-height: 60px;
+    font-weight: 700;
   }
-  nav>ul>li{width:120px;text-align: center;line-height: 40px;position:relative;color:#000;}
-  nav>ul>li:fisrt-child(1){
-      background-color: #C29953;
-      width: 99px;
+  .right-menu-item-text{
+    color:#000;
   }
-  nav>ul>li a{font-family:'Microsoft Yahei';font-size:14px;display: inline-block;color:#000;text-decoration:none;}
-  nav>ul>li a:hover{text-decoration:none;}
-  nav>ul>li a:link{color:#000;width: 100%}
-  nav>ul>li span{transition: all 0.3s ease;display:block; position:absolute; left:50%; width:0px; height:0px; background-color:#000; top:39px; left:50%;}
-  nav>ul>li:hover{
-    background-color: #C29953;
-    color: #fff;
-    font-size: 13px;
-  }
+  nav ul{ border-radius: ; }
+  nav>ul>li{width:120px;text-align: center;line-height: 40px;position:relative;background-color: #C29953;border-right: 1px solid rgba(0,0,0,.1);}
+  nav>ul>li a{font-family:'Microsoft Yahei'; color: #fff; font-size:13px;display: inline-block;}
+  nav>ul>li a:link{width: 100%}
+  nav>ul>li span{transition: all 0.3s ease;display:block; position:absolute; left:50%; width:0px; height:0px;  top:39px; left:50%;}
   nav ul>li:hover a{
     color: #fff;
+    font-size: 15px;
   }
   .currentStyle{
     color: #004cfb;

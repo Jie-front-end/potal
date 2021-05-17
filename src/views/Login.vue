@@ -2,10 +2,6 @@
  <div class="top-container">
    <div class="header">
       <img src="~@/assets/name.png" class="logo" alt="logo">
-      <!-- <span class="title">广西交科集团有限公司
-      </span> -->
-      <!-- <span class="desc"> | </span>
-        <span class="desc"> 统一集成门户 </span> -->
   </div>
   <div class="login-container">
     <el-form ref="form" :model="form" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
@@ -57,6 +53,7 @@
 </template>
 <script>
 import { setToken } from '@/utils/auth'
+import qs from 'qs'
 import { login } from '@/api/api'
 export default {
   data () {
@@ -64,8 +61,10 @@ export default {
       loading: false,
       form: {
         username: 'admin',
-        password: 'admin'
-        // password: 'zhlwtest123'
+        password: 'admin',
+        grant_type: 'password',
+        client_id: 'OrderManagement',
+        client_secret: 'order123'
       },
       capsTooltip: false,
       passwordType: 'password',
@@ -92,20 +91,13 @@ export default {
       })
     },
     handleLogin () {
-      this.$router.push({ path: this.redirect || '/' })
+      // this.$router.push({ path: this.redirect || '/' })
       this.loading = true
-      login(this.form).then(res => {
+      login(qs.stringify(this.form)).then(res => {
         console.log('res', res)
         this.loading = false
-        if (res.data.code === 0) {
-          this.$router.push({ path: this.redirect || '/' })
-        } else {
-          this.$notify.error({
-            title: '消息提示',
-            message: res.message || '获取token失败',
-            position: 'bottom-left'
-          })
-        }
+        setToken(res.data.access_token)
+        this.$router.push({ path: this.redirect || '/' })
       }).catch(() => {
         this.loading = false
         this.$notify.error({
