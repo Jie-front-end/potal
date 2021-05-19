@@ -29,10 +29,16 @@
     margin-top: 5px * $i;
   }
 }
-// margin botton
+// margin bottom
 @for $i from 1 through $mp-listnum {
   .mb#{$i*5} {
     margin-bottom: 5px * $i;
+  }
+}
+// margin
+@for $i from 1 through $mp-listnum {
+  .mg#{$i*5} {
+    margin: 5px * $i;
   }
 }
 
@@ -54,10 +60,16 @@
     padding-top: 5px * $i;
   }
 }
-// padding botton
+// padding bottom
 @for $i from 1 through $mp-listnum {
   .pb#{$i*5} {
     padding-bottom: 5px * $i;
+  }
+}
+// padding
+@for $i from 1 through $mp-listnum {
+  .pd#{$i*5} {
+    padding: 5px * $i;
   }
 }
 
@@ -89,6 +101,19 @@
   z-index: 10000;
 }
 
+// 划分为10等分宽高
+@for $i from 1 through $wh-listnum {
+  .width-#{$i} {
+    width: 100% / $wh-listnum * $i;
+  }
+}
+
+@for $i from 1 through $wh-listnum {
+  .height-#{$i} {
+    height: 100% / $wh-listnum * $i;
+  }
+}
+
 //
 @each $typeKey, $type in $align-type {
   .row-#{$typeKey} {
@@ -107,6 +132,13 @@
   }
 }
 
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .flexTwoEnd {
   display: flex;
   flex-direction: row;
@@ -115,12 +147,6 @@
 .flexStart {
   display: flex;
   flex-direction: row;
-}
-.flexCenter {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 .flexStartCol {
   display: flex;
@@ -142,13 +168,22 @@
 }
 
 .single-feature {
-  padding: 10px;
+  // padding: 0px 10px;
   background: $dark;
   @include transition(0.3s);
   &:hover {
     background: $light;
     box-shadow: 0px 10px 30px $shadow;
   }
+}
+// 下划线隔开
+.border-b {
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.6);
+}
+
+// 文字居中对齐
+.tc {
+  text-align: center;
 }
 
 // 下列是拷贝别人的

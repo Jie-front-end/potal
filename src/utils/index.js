@@ -1,4 +1,4 @@
-import { login } from '@/api/api'
+import { getAuthorize } from '@/api/api'
 import { setToken } from '@/utils/auth'
 import { Notification } from 'element-ui'
 export function formatter (number) {
@@ -58,20 +58,36 @@ export function getCurrentMonthArr (num, space) {
   return dataArr
 }
 
-export function handleLogin (cb) {
-  const params = {
-    // username: 'admin',
-    // password: 'Jkyzhlw302'
-    // username: 'admin',
-    // password: 'zhlwtest123'
-    username: 'admin',
-    password: 'admin'
-    // username: '蒙嘉成',
-    // password: '13978689661'
+export function getUrlParam (paraName) {
+  var url = document.location.toString()
+  var arrObj = url.split('?')
+
+  if (arrObj.length > 1) {
+    var arrPara = arrObj[1].split('&')
+    var arr
+
+    for (var i = 0; i < arrPara.length; i++) {
+      arr = arrPara[i].split('=')
+
+      if (arr != null && arr[0] == paraName) {
+        return arr[1]
+      }
+    }
+    return ''
+  } else {
+    return ''
   }
-  login(params).then(res => {
+}
+
+export function getTokenAPI (cb) {
+  const code = getUrlParam('code')
+  const params = {
+    code: code
+  }
+  console.log('cb', 'code', code, cb)
+  getAuthorize(params).then(res => {
     if (res.code === 0) {
-      // setToken(res.data.token)
+      setToken(res.data.result.access_token)
       if (cb) cb()
     } else {
       Notification.error({

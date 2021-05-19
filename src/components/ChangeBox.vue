@@ -2,13 +2,17 @@
   <div class="container single-feature">
       <div class="title">
         <div class="changeTitle">
-            <div v-for="(item,index) in 3" :key="index" @mouseenter="mouseEnter(index)" :class="[itemHoverIndex ===  index ?  'title-name1': 'title-name2', 'mr5']">
-              <h3 class="ml10"><icon-font class="iconnotice mr10" />通知公告</h3>
+            <div v-for="(item,index) in 3" :key="index" @mouseenter="mouseEnter(index)" :class="[itemHoverIndex ===  index ?  'title-name1': 'title-name2']">
+              <h3 class="ml10"><icon-font class="iconnotice mr10" />{{titleList[index]}}</h3>
             </div>
         </div>
         <div class="more"><a href="">更多 ></a></div>
       </div>
       <div class="content">
+        <div class="border-b pt10 pb10">
+            <div class="newsTitle mb10 fs16 tc">今日头条新闻</div>
+            <div class="tc">xxxxxxxxxxx<span class="fs12 tc">[详细]</span></div>
+        </div>
          <div v-for="item,index in 6" :key="index" class="flexTwoEnd single-news">
               <div class="text mr20">
                  <span :class="[ index > 2 ? 'num':'numTop', 'mr10' ]">
@@ -27,7 +31,11 @@
 <script>
 export default {
   props: {
-    msg: String
+    msg: String,
+    titleList: {
+      type: Array,
+      default: () => ['公司新闻', '企业文化', '消息公告']
+    }
   },
   data () {
     return {
@@ -45,10 +53,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container{
-  width:800px;margin-top:17px;
+  width:100%;
+  margin-top:2px;
 }
 .title{
-  height:36px;border-bottom:3px solid #C29953;
+  height:35px;border-bottom:2px solid #C29953;
+  background: rgb(235,235,235);
   display: flex;
   justify-content: space-between;
 }
@@ -57,33 +67,28 @@ export default {
 }
 .title .title-name1{
   width:120px;
-  height:36px;
-  font-family:'Microsoft Yahei';
+  height:35px;
   background:#C29953;
   color:#fff;
-  line-height:36px;
-  border: 1px solid #C29953;
-  border-radius: 8px 8px 0px 0px;
+  line-height:35px;
+  border-right: 1px solid #C29953;
+  // border: 1px solid #C29953;
  }
 .title .title-name2{
   width:120px;
-  height:36px;
-  font-family:'Microsoft Yahei';
-  background:#fff;
+  height:35px;
   color:#C29953;
-  line-height:36px;
-  border: 1px solid #C29953;
-  border-radius: 8px 8px 0px 0px;
+  line-height:35px;
+  border-right: 1px solid #fff;
  }
 .title .more{
   width:45px;
-  height:15px;
-  margin-top:16px;
+  margin-top:10px;
   margin-right:10px;
   }
 .title .more a{
   font-size: 14px;
-  color:#999;
+  color:#1890ff;
   }
 .content{
    display: flex;

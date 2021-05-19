@@ -8,10 +8,16 @@ import './permission'
 import './assets/scss/style.scss'
 import './assets/iconfont/iconfont.css'
 import './assets/css/common.css'
+import SSO from './sso.js'
 Vue.config.productionTip = false
 Vue.component('icon-font', IconFont)
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+SSO.init(() => {
+  main()
+})
+function main () {
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+}

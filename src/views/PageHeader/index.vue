@@ -118,6 +118,8 @@ export default {
     background-color: #ffffff;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     border-bottom: 2px solid #C29953;
+    background-image: url('../../assets/bg.jpg');
+    background-size:100% 100%;
     z-index: 99;
   }
   .nav_logo{
