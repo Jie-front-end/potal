@@ -4,6 +4,11 @@ $colors: (
   "purple": #9e6fef,
   "light-purple": #bfbdff,
   "yellow": #fff701,
+  "blue1": rgb(85, 181, 239),
+  "blue2": #1890ff,
+  "blue3": rgb(62, 50, 228),
+  "black1": rgba(0, 0, 0, 0.6),
+  "black2": rgba(0, 0, 0, 0.8),
 );
 // Color
 $primary-color: #ff9902;
@@ -24,13 +29,20 @@ $blog: #928c91;
 $base-font-size: 1rem;
 $mp-listnum: 20;
 $font-sizes-listnum: 15;
-$wh-listnum: 10;
+$wh-listnum: 24;
 $align-type: (
-  "start": "flex-start",
-  "end": "flex-end",
-  "center": "center",
-  "space-between": "space-between",
-  "space-around": "space-around",
+  "start": flex-start,
+  "end": flex-end,
+  "center": center,
+  "spaceb": space-between,
+  "spacea": space-around,
+);
+$font-weight: (
+  "400": 400,
+  "500": 500,
+  "600": 600,
+  "bold": bold,
+  "bolder": bolder,
 );
 $font-sizes: (
   xxs: 0.5714,
@@ -43,5 +55,5 @@ $font-sizes: (
   // 14px
     lg: 1.1429,
   // 16px
-    xl: 1.4286 // 20px,,,,,,,,,,,,
+    xl: 1.4286 // 20px,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 );

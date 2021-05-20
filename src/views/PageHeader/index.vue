@@ -21,8 +21,9 @@
                       </el-button>
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item command="logout">退出登录</el-dropdown-item>
-                      <el-dropdown-item command="logout">修改密码</el-dropdown-item>
+                      <el-dropdown-item command="logout">个人中心</el-dropdown-item>
+                      <el-dropdown-item command="logout">密码设置</el-dropdown-item>
+                      <el-dropdown-item command="logout">退出登陆</el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
               </div>
@@ -38,7 +39,7 @@
 export default {
   data: function () {
     return {
-      navData: [{ link: '/index', name: '首页' }, { link: '/index', name: '流程中心' }, { link: '/index', name: '工程项目' }, { link: '/index', name: '运营管理' }, { link: '/index', name: '董事长信箱' }],
+      navData: [{ link: '/index', name: '首页' }, { link: '/index', name: '任务中心' }, { link: '/index', name: '流程中心' }, { link: '/index', name: '政策法规' }],
       wid: 0,
       toUrl: '/imagesensor',
       userName: '管理员'

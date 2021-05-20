@@ -16,8 +16,8 @@ const init = (callback) => {
   //   if (st) {
   //     validateSt(st, callback)
   //   } else {
-  //     // oauth2 认证
-  //     // window.location.href = process.env.VUE_APP_SSO_URL + '/oauth/authorize?client_id=' + process.env.VUE_APP_CLIENT_ID + '&response_type=code&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL
+  //     //   oauth2 认证
+  //     window.location.href = process.env.VUE_APP_SSO_URL + '/oauth/authorize?client_id=' + process.env.VUE_APP_CLIENT_ID + '&response_type=code&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL
   //   }
   // }
   console.log('-------单点登录结束-------')

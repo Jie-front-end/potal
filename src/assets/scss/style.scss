@@ -1,8 +1,17 @@
 @import "./variables";
 // color
 @each $colorKey, $color in $colors {
-  .text-#{$colorKey} {
+  .color-#{$colorKey} {
     color: $color;
+  }
+  .bg-#{$colorKey} {
+    background: $color;
+  }
+}
+// font-size
+@each $key, $value in $font-weight {
+  .fw#{$key} {
+    font-weight: $value;
   }
 }
 // font-size
@@ -11,72 +20,43 @@
     font-size: $size * $base-font-size;
   }
 }
-// margin left
-@for $i from 1 through $mp-listnum {
-  .ml#{$i*5} {
-    margin-left: 5px * $i;
-  }
-}
-// margin right
-@for $i from 1 through $mp-listnum {
-  .mr#{$i*5} {
-    margin-right: 5px * $i;
-  }
-}
-// margin top
-@for $i from 1 through $mp-listnum {
-  .mt#{$i*5} {
-    margin-top: 5px * $i;
-  }
-}
-// margin bottom
-@for $i from 1 through $mp-listnum {
-  .mb#{$i*5} {
-    margin-bottom: 5px * $i;
-  }
-}
-// margin
-@for $i from 1 through $mp-listnum {
-  .mg#{$i*5} {
-    margin: 5px * $i;
-  }
-}
-
-// padding left
-@for $i from 1 through $mp-listnum {
-  .pl#{$i*5} {
-    padding-left: 5px * $i;
-  }
-}
-// padding right
-@for $i from 1 through $mp-listnum {
-  .pr#{$i*5} {
-    padding-right: 5px * $i;
-  }
-}
-// padding top
-@for $i from 1 through $mp-listnum {
-  .pt#{$i*5} {
-    padding-top: 5px * $i;
-  }
-}
-// padding bottom
-@for $i from 1 through $mp-listnum {
-  .pb#{$i*5} {
-    padding-bottom: 5px * $i;
-  }
-}
-// padding
-@for $i from 1 through $mp-listnum {
-  .pd#{$i*5} {
-    padding: 5px * $i;
-  }
-}
-
 // font-size
 @for $i from 1 through $font-sizes-listnum {
   .fs#{6 + $i*2} {
     font-size: 6px + $i * 2;
+  }
+}
+// margin
+@for $i from 1 through $mp-listnum {
+  .ml#{$i*5} {
+    margin-left: 5px * $i;
+  }
+  .mr#{$i*5} {
+    margin-right: 5px * $i;
+  }
+  .mt#{$i*5} {
+    margin-top: 5px * $i;
+  }
+  .mb#{$i*5} {
+    margin-bottom: 5px * $i;
+  }
+  .mg#{$i*5} {
+    margin: 5px * $i;
+  }
+  .pl#{$i*5} {
+    padding-left: 5px * $i;
+  }
+  .pr#{$i*5} {
+    padding-right: 5px * $i;
+  }
+  .pt#{$i*5} {
+    padding-top: 5px * $i;
+  }
+  .pb#{$i*5} {
+    padding-bottom: 5px * $i;
+  }
+  .pd#{$i*5} {
+    padding: 5px * $i;
   }
 }
 
@@ -99,6 +79,15 @@
   left: 0;
   bottom: 0;
   z-index: 10000;
+}
+.showMouse {
+  cursor: pointer;
+}
+.border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}
+.border-right {
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 // 划分为10等分宽高
@@ -129,7 +118,11 @@
     display: flex;
     flex-direction: column;
     justify-content: $type;
+    flex-wrap: wrap;
   }
+}
+.wrap {
+  flex-wrap: wrap;
 }
 
 .center {

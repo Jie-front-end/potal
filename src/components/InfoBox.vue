@@ -1,13 +1,20 @@
 <template>
   <div class="container single-feature">
       <div class="title">
-        <div class="title-name">
-          <h3><icon-font class="iconnotice mr10" />通知公告</h3>
+        <div class="changeTitle">
+            <div class=title-name1>
+              <h3 class="ml10"><icon-font class="iconnotice mr10" />待办事宜</h3>
+            </div>
         </div>
-        <div class="more"><a href="">更多 ></a></div>
+        <div class="more"><a href="">更多 >></a></div>
       </div>
       <div class="content">
-         <div v-for="item,index in 6" :key="index" class="flexTwoEnd single-news">
+         <div class="row-start mt10 mb10">
+            <div v-for="(item,index) in handleList" :key="index" @mouseenter="mouseEnter(index)" :class="[itemHoverIndex ===  index ?  'color-blue2': 'color-black','showMouse']">
+              <span class="ml10 fs14 fw600">{{handleList[index].key}}({{handleList[index].num}})</span> <el-divider v-if="index !== handleList.length - 1" direction="vertical" />
+            </div>
+         </div>
+         <div v-for="item,index in 7" :key="index" class="row-spaceb single-news">
               <div class="text mr20">
                  <span :class="[ index > 2 ? 'num':'numTop', 'mr10' ]">
                   {{index +1}}
@@ -18,6 +25,15 @@
                    05-13
               </div>
          </div>
+         <div class="row-end mt10">
+            <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :page-size="5"
+                layout="total, prev, pager, next"
+                :total="200">
+            </el-pagination>
+         </div>
       </div>
   </div>
 </template>
@@ -25,7 +41,24 @@
 <script>
 export default {
   props: {
-    msg: String
+    msg: String,
+    height: {
+
+    },
+    handleList: {
+      type: Array,
+      default: () => [{ key: '待办', num: 100 }, { key: '待阅', num: 100 }, { key: '已办', num: 100 }]
+    }
+  },
+  data () {
+    return {
+      itemHoverIndex: 0
+    }
+  },
+  methods: {
+    mouseEnter (index) {
+      this.itemHoverIndex = index
+    }
   }
 }
 </script>
@@ -33,34 +66,33 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container{
-  width:800px;margin-top:17px;
+  width:100%;
+  margin-top:2px;
 }
 .title{
-  height:36px;border-bottom:3px solid #C29953;
+  height:35px;border-bottom:2px solid #C29953;
   display: flex;
   justify-content: space-between;
-  }
-.title .title-name{
+}
+.changeTitle {
+  display: flex;
+}
+.title .title-name1{
   width:120px;
-  height:36px;
+  height:35px;
   background:#C29953;
   color:#fff;
-  line-height:36px;
-  border-radius: 8px 8px 0px 0px;
-  }
-.title .title-name h3{
-  margin-left:10px;
-  font-family:'Microsoft Yahei';
-  }
+  line-height:35px;
+  border-right: 1px solid #C29953;
+ }
 .title .more{
-  width:45px;
-  height:15px;
-  margin-top:16px;
+  width:60px;
+  margin-top:10px;
   margin-right:10px;
   }
 .title .more a{
   font-size: 14px;
-  color:#999;
+  color:#1890ff;
   }
 .content{
    display: flex;
@@ -68,8 +100,8 @@ export default {
    padding: 10px 20px;
 }
 .single-news {
-  height: 36px;
-  line-height: 36px;
+  height: 42px;
+  line-height: 42px;
   color: rgba(0,0,0,0.6);
   border-bottom: 1px dotted rgba(0,0,0,0.6);
   &:hover{

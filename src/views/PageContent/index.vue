@@ -3,18 +3,24 @@
     <div class="home">
         <!-- <change-box /> -->
         <div class="row-start">
-           <el-carousel class="width-3" height="350px" >
+           <el-carousel class="width-8" height="380px" >
                 <el-carousel-item v-for="item in 4" :key="item">
             </el-carousel-item>
           </el-carousel>
-          <div class="width-7 ml10">
+          <div class="width-16 ml20" style="max-height:380px">
             <change-box />
           </div>
         </div>
-        <div class="flexTwoEnd">
-          <info-box />
-          <icon-box />
-          <icon-box />
+        <div class="row-start mt20">
+          <div class="width-8">
+            <div class="mb10">
+               <icon-box />
+            </div>
+            <box3x3 />
+          </div>
+          <div class="width-16 ml20">
+            <info-box />
+          </div>
         </div>
     </div>
   </div>
@@ -25,13 +31,15 @@
 import ChangeBox from '@/components/ChangeBox'
 import InfoBox from '@/components/InfoBox'
 import IconBox from '@/components/IconBox'
+import Box3x3 from '@/components/box3x3'
 import { getSysNotice } from '@/api/api'
 export default {
   name: 'Home',
   components: {
     ChangeBox,
     InfoBox,
-    IconBox
+    IconBox,
+    Box3x3
   },
   created () {
     const params = {

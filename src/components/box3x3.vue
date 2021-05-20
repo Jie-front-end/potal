@@ -1,22 +1,23 @@
 <template>
-  <div class="container pb20 single-feature">
+  <div class="container pb10 single-feature">
       <div class="title">
         <div class="title-name">
-          <h3><icon-font class="iconnotice mr10" />应用中心</h3>
+          <h3><icon-font class="iconnotice mr10" />常用功能</h3>
         </div>
         <div class="more"><a href=""><span class="color-blue2">更多 >></span></a></div>
       </div>
       <div class="content">
         <div class="row-start wrap">
-           <div v-for="item,index in 8" :key="index" class="mt10 width-6 row-center">
-             <div class="col-start">
-                <div class="icon center bg-blue1">
-                    <icon-font size="20" color="white" class="icon001-mailinboxapp" />
-                </div>
-                <div class="text mt10 fs8">
-                    应用管理系统
-                </div>
-             </div>
+           <div v-for="item,index in 6" :key="index" class="mt10 width-8 row-spacea">
+              <div class="row-start">
+                  <div class="icon center">
+                      <icon-font size="18" class="icon001-mailinboxapp" />
+                  </div>
+                  <div class="mt10 fs14">
+                    <span>管理系统 </span>
+                  </div>
+              </div>
+                <el-divider v-if="index % 3 !== 2" class="mt10 ml10" direction="vertical" />
            </div>
         </div>
       </div>
@@ -66,13 +67,8 @@ export default {
    flex-direction: column;
    padding: 10px 20px;
    .icon{
-     width: 45px;
-     height: 45px;
-     border-radius: 6px;
-   }
-   .text{
-     width: 45px;
-     text-align: center
+     width: 40px;
+     height: 40px;
    }
 }
 .flexRow{
