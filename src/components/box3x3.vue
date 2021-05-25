@@ -8,13 +8,13 @@
       </div>
       <div class="content">
         <div class="row-start wrap">
-           <div v-for="item,index in 6" :key="index" class="mt10 width-8 row-spacea">
+           <div v-for="item,index in functionList" :key="index" class="mt10 width-8 row-spacea">
               <div class="row-start">
                   <div class="icon center">
-                      <icon-font size="18" class="icon001-mailinboxapp" />
+                      <icon-font size="18" :color="functionList[index].color" :class="[functionList[index].icon]" />
                   </div>
                   <div class="mt10 fs14">
-                    <span>管理系统 </span>
+                    <span>{{functionList[index].name}} </span>
                   </div>
               </div>
                 <el-divider v-if="index % 3 !== 2" class="mt10 ml10" direction="vertical" />
@@ -28,6 +28,18 @@
 export default {
   props: {
     msg: String
+  },
+  data () {
+    return {
+      functionList: [
+        { color: 'blue', icon: 'iconxinxi', name: '新建流程' },
+        { color: 'rgb(49,176,107)', icon: 'iconnotice', name: '新闻发布' },
+        { color: 'green', icon: 'icondaiyue', name: '企业文化' },
+        { color: 'black', icon: 'iconxinwen', name: '会议申请' },
+        { color: 'black', icon: 'icondaiban', name: '合同申请' },
+        { color: 'rgb(244,157,68)', icon: 'iconkeji1', name: '采购申请' }
+      ]
+    }
   }
 }
 </script>

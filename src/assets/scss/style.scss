@@ -127,7 +127,7 @@
 
 .center {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -152,6 +152,14 @@
   align-items: center;
 }
 
+// 宽高分别设置100%
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: calc(100vh - 150px);
+}
+
 @mixin transition($args...) {
   -webkit-transition: $args;
   -moz-transition: $args;
@@ -174,9 +182,19 @@
   border-bottom: 1px dotted rgba(0, 0, 0, 0.6);
 }
 
-// 文字居中对齐
+// 文字右对齐
 .tc {
   text-align: center;
+}
+// 文字居中对齐
+.tr {
+  text-align: right;
+}
+
+//白色边框阴影
+.box-shadow {
+  background: $light;
+  box-shadow: 0px 10px 30px $shadow;
 }
 
 // 下列是拷贝别人的
@@ -191,6 +209,10 @@
   font-family: PingFangSC-Regular;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.el-dialog__body {
+  padding: 20px 30px 30px 30px;
 }
 
 .vision-select /deep/.el-input__inner {

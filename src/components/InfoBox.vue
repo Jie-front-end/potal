@@ -15,13 +15,13 @@
             </div>
          </div>
          <div v-for="item,index in 7" :key="index" class="row-spaceb single-news">
-              <div class="text mr20">
+              <div class="text width-22 mr20">
                  <span :class="[ index > 2 ? 'num':'numTop', 'mr10' ]">
                   {{index +1}}
                  </span>
                     2021年5月13日，集团公司副总经理李祖文、集团公司安全部部长唐茄槐、事业部副总经理朱其义一行到蒙象路项目举行揭牌仪式并调研指导工作，
               </div>
-              <div class="time mr10">
+              <div class="time width-2">
                    05-13
               </div>
          </div>
@@ -47,7 +47,7 @@ export default {
     },
     handleList: {
       type: Array,
-      default: () => [{ key: '待办', num: 100 }, { key: '待阅', num: 100 }, { key: '已办', num: 100 }]
+      default: () => [{ key: '待办', num: 100 }, { key: '待阅', num: 100 }]
     }
   },
   data () {
@@ -58,6 +58,12 @@ export default {
   methods: {
     mouseEnter (index) {
       this.itemHoverIndex = index
+    },
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`)
     }
   }
 }
@@ -110,7 +116,6 @@ export default {
   }
 }
 .time{
-    width: 50px;
     font-size: 13px;
 }
 .text{

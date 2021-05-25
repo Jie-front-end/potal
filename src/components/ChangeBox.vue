@@ -14,13 +14,13 @@
             <div class="tc color-black1">2021年5月13日，集团公司副总经理李祖文<a href="" class="fs12 tc color-blue2">[详细]</a></div>
         </div>
          <div v-for="item,index in 5" :key="index" class="flexTwoEnd single-news">
-              <div class="text mr20">
+              <div class="text mr20 width-22">
                  <span :class="[ index > 2 ? 'num':'numTop', 'mr10' ]">
                   {{index +1}}
                  </span>
                     2021年5月13日，集团公司副总经理李祖文、集团公司安全部部长唐茄槐、事业部副总经理朱其义一行到蒙象路项目举行揭牌仪式并调研指导工作，
               </div>
-              <div class="time mr10">
+              <div class="time width-2">
                    05-13
               </div>
          </div>
@@ -121,7 +121,6 @@ export default {
   }
 }
 .time{
-    width: 50px;
     font-size: 13px;
 }
 .text{

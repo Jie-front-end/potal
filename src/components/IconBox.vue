@@ -8,13 +8,13 @@
       </div>
       <div class="content">
         <div class="row-start wrap">
-           <div v-for="item,index in 8" :key="index" class="mt10 width-6 row-center">
+           <div v-for="item,index in functionList" :key="index" class="mt10 width-6 row-center">
              <div class="col-start">
-                <div class="icon center bg-blue1">
-                    <icon-font size="20" color="white" class="icon001-mailinboxapp" />
+                <div class="icon center showMouse bg-blue1" @click="openNew(functionList[index].url)">
+                    <icon-font size="20" color="white" :class="[functionList[index].icon]" />
                 </div>
                 <div class="text mt10 fs8">
-                    应用管理系统
+                    {{functionList[index].name}}
                 </div>
              </div>
            </div>
@@ -27,6 +27,25 @@
 export default {
   props: {
     msg: String
+  },
+  data () {
+    return {
+      functionList: [
+        { color: 'blue', icon: 'icontongxunlu', name: 'OA系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'rgb(49,176,107)', icon: 'iconHR', name: '人力系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'green', icon: 'iconcaiwu', name: '财务系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'black', icon: 'iconrenliziyuan', name: 'ERP系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'black', icon: 'icondongtai', name: '科信管理系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'rgb(244,157,68)', icon: 'iconzhinenghua', name: '知识管理系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'rgb(244,157,68)', icon: 'icondaiban', name: '档案管理系统', url: 'http://10.0.150.129:3000/' },
+        { color: 'rgb(244,157,68)', icon: 'iconzhongyaojihui', name: '管理驾驶舱', url: 'http://10.0.150.129:3000/' }
+      ]
+    }
+  },
+  methods: {
+    openNew (url) {
+      window.open(url)
+    }
   }
 }
 </script>
@@ -71,7 +90,7 @@ export default {
      border-radius: 6px;
    }
    .text{
-     width: 45px;
+     width: 50px;
      text-align: center
    }
 }

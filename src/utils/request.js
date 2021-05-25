@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
+import { setToken, getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
@@ -24,10 +24,10 @@ service.interceptors.request.use(
     if (config.url === '/oauth/token') {
       config.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
     }
-    // const token = getToken()
-    // if (token) {
-    //   config.headers.Authorization = token // 让每个请求携带自定义 token 请根据实际情况自行修改
-    // }
+    const token = getToken()
+    if (token) {
+      config.headers.Authorization = token // 让每个请求携带自定义 token 请根据实际情况自行修改
+    }
 
     config.headers['X-Requested-With'] = 'XMLHttpRequest'
     console.log('config', config)
@@ -86,24 +86,17 @@ service.interceptors.response.use(
     return { data }
   },
   error => {
-    // if (error.response.status === 911 || error.response.status === 811) {
-    //   window.location.replace(error.response.data)
-    // } else if (error.response.status === 504) {
-    Message({
-      showClose: true,
-      message: '请求超时',
-      type: 'error',
-      duration: 5 * 1000
-    })
-    // } else {
-    //   const errorData = error.response.data
-    //   Message({
-    //     showClose: true,
-    //     message: errorData.message ? errorData.message : '未知错误',
-    //     type: errorData.message ? 'warning' : 'error',
-    //     duration: 5 * 1000
-    //   })
-    // }
+    if (error.response.status === 811) {
+      setToken('')
+      window.location.replace(error.response.data.login_url)
+    } else {
+      Message({
+        showClose: true,
+        message: '请求超时',
+        type: 'error',
+        duration: 5 * 1000
+      })
+    }
     return Promise.reject(error)
   }
 )

@@ -7,14 +7,21 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/index',
     name: 'Home',
-    component: Home
-    // children: [
-    //   {
-    //     path: 'catetory/:catetoryId',
-    //     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-    //   }
-    // ]
+    component: Home,
+    children: [
+      {
+        path: 'index',
+        name: '首页',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/index.vue')
+      },
+      {
+        path: 'taskCenter',
+        name: '任务中心',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/taskCenter.vue')
+      }
+    ]
   },
   // {
   //   path: '/',

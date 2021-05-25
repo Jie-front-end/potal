@@ -1,7 +1,8 @@
 <template>
   <div id="index">
     <pageHeader></pageHeader>
-    <pageContent></pageContent>
+    <router-view />
+    <!-- <pageContent></pageContent> -->
     <pageFooter></pageFooter>
   </div>
 </template>

@@ -6,20 +6,24 @@ import { getAuthorize } from '@/api/api'
 const init = (callback) => {
   console.log('-------单点登录开始-------')
   const token = getToken()
+  // const token = sessionStorage.getItem('token')
   const st = getUrlParam('code')
   console.log('code', st)
   console.log('token', token)
-  loginSuccess(callback)
-  // if (token) {
-  //   loginSuccess(callback)
-  // } else {
-  //   if (st) {
-  //     validateSt(st, callback)
-  //   } else {
-  //     //   oauth2 认证
-  //     window.location.href = process.env.VUE_APP_SSO_URL + '/oauth/authorize?client_id=' + process.env.VUE_APP_CLIENT_ID + '&response_type=code&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL
-  //   }
-  // }
+  // loginSuccess(callback)
+  if (token) {
+    console.log('goto1')
+    loginSuccess(callback)
+  } else {
+    if (st) {
+      console.log('goto2')
+      validateSt(st, callback)
+    } else {
+      console.log('goto3')
+      //   oauth2 认证
+      window.location.href = 'http://10.0.150.77:8081/oauth/authorize?client_id=Portal&redirect_uri=http://10.0.150.129:9601&response_type=code'
+    }
+  }
   console.log('-------单点登录结束-------')
 }
 const SSO = {
@@ -53,16 +57,17 @@ function validateSt (code, callback) {
   const params = {
     code: code,
     client_id: 'Portal',
-    redirect_uri: 'http://10.0.150.77:8084/portal/auth/login'
+    redirect_uri: 'http://10.0.150.129:9601'
   }
   getAuthorize(params).then(res => {
     console.log('res', res)
     if (res.data.code === 0) {
-      setToken(res.data.data.result.access_token)
+      sessionStorage.setItem('token', res.data.data.access_token)
+      setToken(res.data.data.access_token)
       loginSuccess(callback)
     } else {
       // oauth2 认证
-      window.location.href = 'http://10.0.150.77:8081/oauth/authorize?client_id=Portal&redirect_uri=http://10.0.150.77:8084/portal/auth/login&response_type=code'
+      window.location.href = 'http://10.0.150.77:8081/oauth/authorize?client_id=Portal&redirect_uri=http://10.0.150.129:9601&response_type=code'
 
       // window.location.href = process.env.VUE_APP_SSO_URL + '/oauth/authorize?client_id=' + process.env.VUE_APP_CLIENT_ID + '&response_type=code&redirect_uri=' + process.env.VUE_APP_CALLBACK_URL
     }

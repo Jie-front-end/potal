@@ -21,8 +21,8 @@
                       </el-button>
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item command="logout">个人中心</el-dropdown-item>
-                      <el-dropdown-item command="logout">密码设置</el-dropdown-item>
+                      <el-dropdown-item command="userCenter">个人中心</el-dropdown-item>
+                      <el-dropdown-item command="setPass">密码设置</el-dropdown-item>
                       <el-dropdown-item command="logout">退出登陆</el-dropdown-item>
                     </el-dropdown-menu>
                   </el-dropdown>
@@ -30,19 +30,28 @@
           </div>
         </div>
          <ul class="flexStart ml70" >
-              <li v-for="(item,index) in navData" :key="index" @click="currentLi(index)"><router-link :to="item.link" >{{item.name}}</router-link></li>
+              <li v-for="(item,index) in navData" :key="index" @click="currentLi(index)" :class="[navIndex === index ? 'fs18' : 'fs14']"><router-link :to="item.link" >{{item.name}}</router-link></li>
          </ul>
       </nav>
+       <usercenter ref="usercenter"/>
+       <edit-password ref="password"/>
     </div>
 </template>
 <script>
+import usercenter from '@/components/usercenter'
+import editPassword from '@/components/editPassword'
 export default {
+  components: {
+    usercenter,
+    editPassword
+  },
   data: function () {
     return {
-      navData: [{ link: '/index', name: '首页' }, { link: '/index', name: '任务中心' }, { link: '/index', name: '流程中心' }, { link: '/index', name: '政策法规' }],
+      navData: [{ link: '/index', name: '首页' }, { link: '/taskCenter', name: '任务中心' }, { link: '/index', name: '工程项目' }, { link: '/index', name: '政策法规' }],
       wid: 0,
       toUrl: '/imagesensor',
-      userName: '管理员'
+      userName: '管理员',
+      navIndex: 0
     }
   },
   computed: {
@@ -61,7 +70,8 @@ export default {
       // })
     },
     currentLi (index) {
-      // console.log(index)
+      this.navIndex = index
+      this.$router.push({ path: this.navData[index].link })
     },
     async logout () {
       await this.$store.dispatch('user/logout')
@@ -72,13 +82,14 @@ export default {
     },
     handleDropdown (command) {
       switch (command) {
-        // case 'password':
-        //   this.$refs.passwordEditModal.open()
-        //   break
+        case 'userCenter':
+          this.$refs.usercenter.open()
+          break
+        case 'setPass':
+          this.$refs.password.open()
+          break
         case 'logout':
           this.$message.warning('此功能尚未提供')
-          // this.handleLogout()
-          // this.$store.dispatch('user/logout')
           break
         default:
           break
@@ -143,14 +154,12 @@ export default {
   .right-menu-item-text{
     color:#000;
   }
-  nav ul{ border-radius: ; }
   nav>ul>li{width:120px;text-align: center;line-height: 40px;position:relative;background-color: #C29953;border-right: 1px solid rgba(0,0,0,.1);}
-  nav>ul>li a{font-family:'Microsoft Yahei'; color: #fff; font-size:13px;display: inline-block;}
+  nav>ul>li a{font-family:'Microsoft Yahei'; color: #fff; display: inline-block;}
   nav>ul>li a:link{width: 100%}
   nav>ul>li span{transition: all 0.3s ease;display:block; position:absolute; left:50%; width:0px; height:0px;  top:39px; left:50%;}
   nav ul>li:hover a{
     color: #fff;
-    font-size: 15px;
   }
   .currentStyle{
     color: #004cfb;
