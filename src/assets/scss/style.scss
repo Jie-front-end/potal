@@ -83,6 +83,11 @@
 .showMouse {
   cursor: pointer;
 }
+.showBlue {
+  &:hover {
+    color: #1890ff;
+  }
+}
 .border-bottom {
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
@@ -157,7 +162,7 @@
   width: 100%;
 }
 .h100 {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 160px);
 }
 
 @mixin transition($args...) {

@@ -7,7 +7,7 @@
             <div class="nav_logo_doc">| 统一集成门户</div>
           </div>
           <div class="nav_logo flexStart mr50">
-              <div class="comLi">
+              <div class="comLi showMouse">
                  <h3><icon-font class="icon001-mailinboxapp" /></h3>
               </div>
               <div class="liLine" />

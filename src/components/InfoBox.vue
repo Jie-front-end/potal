@@ -3,10 +3,10 @@
       <div class="title">
         <div class="changeTitle">
             <div class=title-name1>
-              <h3 class="ml10"><icon-font class="iconnotice mr10" />待办事宜</h3>
+              <h3 class="ml10"><icon-font class="icondaiban mr10" />待办事宜</h3>
             </div>
         </div>
-        <div class="more"><a href="">更多 >></a></div>
+        <div class="more"><router-link to="/waitHandle" >更多 >></router-link></div>
       </div>
       <div class="content">
          <div class="row-start mt10 mb10">

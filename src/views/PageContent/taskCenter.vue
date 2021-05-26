@@ -1,13 +1,13 @@
 <template>
-    <div class="row-start">
+    <div class="row-start mt10">
         <div class="width-4 bg-gray h100" >
           <div v-for="(item,index) in tabList" :key="index" @click="mouseEnter(index)" :class="[itemHoverIndex ===  index ?  'title-name1': 'title-name2','tc','pd20','border-b','showMouse' ]">
-              {{item}}
+              {{item}} <i v-if="itemHoverIndex ===  index" class="el-icon-caret-right" />
           </div>
         </div>
         <div class="width-20">
           <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
-            <el-tab-pane class="pd20" v-for="(item, index) in paneList" :key="index" :label="paneList[index].label" :name="paneList[index].name">
+            <el-tab-pane class="pt10 pl20 pr20" v-for="(item, index) in paneList" :key="index" :label="paneList[index].label" :name="paneList[index].name">
               <!-- 待办事项 -->
               <el-table
                 v-if="itemHoverIndex === 0"
@@ -164,7 +164,7 @@ export default {
 <style scoped>
 .title-name1{
   /* background-image: linear-gradient(to bottom, #f0f0f0 , #bfbfbf); */
-  background-image: linear-gradient(to bottom, #fff566 , #ad8b00);
+  background-image: linear-gradient(to bottom, #ffa940 , rgb(194,153,83));
   color: #fff;
 }
 .title-name2{

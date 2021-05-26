@@ -2,9 +2,9 @@
   <div class="container pb20 single-feature">
       <div class="title">
         <div class="title-name">
-          <h3><icon-font class="iconnotice mr10" />应用中心</h3>
+          <h3><icon-font class="iconcrew_feature mr10" />应用中心</h3>
         </div>
-        <div class="more"><a href=""><span class="color-blue2">更多 >></span></a></div>
+        <div class="more"><router-link class="color-blue2" to="/appCenter" >更多 >></router-link></div>
       </div>
       <div class="content">
         <div class="row-start wrap">

@@ -2,9 +2,9 @@
   <div class="container pb10 single-feature">
       <div class="title">
         <div class="title-name">
-          <h3><icon-font class="iconnotice mr10" />常用功能</h3>
+          <h3><icon-font class="iconshezhi2 mr10" />常用功能</h3>
         </div>
-        <div class="more"><a href=""><span class="color-blue2">更多 >></span></a></div>
+        <div class="more"><router-link class="color-blue2" to="/commonFun" >更多 >></router-link></div>
       </div>
       <div class="content">
         <div class="row-start wrap">
@@ -32,11 +32,11 @@ export default {
   data () {
     return {
       functionList: [
-        { color: 'blue', icon: 'iconxinxi', name: '新建流程' },
+        { color: 'blue', icon: 'iconliucheng', name: '新建流程' },
         { color: 'rgb(49,176,107)', icon: 'iconnotice', name: '新闻发布' },
-        { color: 'green', icon: 'icondaiyue', name: '企业文化' },
-        { color: 'black', icon: 'iconxinwen', name: '会议申请' },
-        { color: 'black', icon: 'icondaiban', name: '合同申请' },
+        { color: 'green', icon: 'icondangjianhudongbaike', name: '企业文化' },
+        { color: 'black', icon: 'icondaiban', name: '会议申请' },
+        { color: 'black', icon: 'iconjilu', name: '合同申请' },
         { color: 'rgb(244,157,68)', icon: 'iconkeji1', name: '采购申请' }
       ]
     }

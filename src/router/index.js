@@ -20,6 +20,26 @@ const routes = [
         path: 'taskCenter',
         name: '任务中心',
         component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/taskCenter.vue')
+      },
+      {
+        path: 'companyNews',
+        name: '新闻公告',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/companyNews.vue')
+      },
+      {
+        path: 'waitHandle',
+        name: '待办事宜',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/waitHandle.vue')
+      },
+      {
+        path: 'appCenter',
+        name: '应用中心',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/appCenter.vue')
+      },
+      {
+        path: 'commonFun',
+        name: '常用功能',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PageContent/commonFun.vue')
       }
     ]
   },
